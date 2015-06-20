@@ -1,0 +1,8 @@
+*.js*
+!content/themes/**/*.js
+content/data/ghost-dev.db
+core/
+node_modules/
+npm-debug.log
+LICENSE
+**/*/README*

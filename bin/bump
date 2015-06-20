@@ -1,0 +1,28 @@
+#!/bin/bash
+
+mv config.js config.bak
+
+rm -rf core/
+rm -rf content/themes/casper
+rm content/data/ghost-dev.db
+rm *.js*
+
+wget "https://github.com/TryGhost/Ghost/releases/download/$1/Ghost-$1.zip"
+unzip -o Ghost-$1.zip
+npm install
+
+mv config.bak config.js
+
+rm Ghost-$1.zip
+rm LICENSE
+rm Gruntfile.js
+rm bower.json
+rm *.md
+touch README.md
+git checkout README.md
+
+cp -R content/themes/casper content/themes/casper-copy-$1
+
+echo "Yay!"
+
+npm start
